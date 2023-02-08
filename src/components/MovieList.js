@@ -1,14 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function MoviesList({ movies }) {
-  const renderMovies = Object.keys(movies).map((movieID) => (
-    <li key={movieID}>
-      <Link to={`/movies/${movieID}`}>{movies[movieID].title}</Link>
-    </li>
-  ));
+function MovieShow({movies}) {
+const params = useParams();
+console.log(params);
+  return (
+    <div>
+      <h3>{movies[params.movieId].title}</h3>
 
-  return <ul>{renderMovies}</ul>;
+    </div>
+  );
 }
 
-export default MoviesList;
+export default MovieShow;
